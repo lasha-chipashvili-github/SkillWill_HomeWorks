@@ -1,0 +1,28 @@
+-- Online SQL Editor to Run SQL Online.
+-- Use the editor to create new tables, insert data and all other SQL operations.
+  
+SELECT first_name, age
+FROM Customers;
+
+
+--Create
+ INSERT INTO Customers (customer_id, first_name, last_name, age, country)
+   VALUES (6, 'Emmanuel', 'Macron', 45, 'France'),
+   (7, 'Marine', 'Le Pen', 55, 'France');
+  
+--Read
+SELECT customer_id, first_name, last_name, age, country
+FROM Customers WHERE customer_id = 6;
+
+--Update
+UPDATE Customers SET age=46 WHERE customer_id = 6;
+
+--Read
+SELECT customer_id, first_name, last_name, age, country
+FROM Customers WHERE customer_id = 6;
+
+--Delete
+DELETE FROM Customers WHERE customer_id = 6;
+
+SELECT customer_id, first_name, age
+FROM Customers;
