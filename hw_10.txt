@@ -1,0 +1,40 @@
+DROP TABLE IF EXISTS Customers;
+DROP TABLE IF EXISTS Orders;
+DROP TABLE IF EXISTS Shippings;
+DROP TABLE IF EXISTS Products;
+
+
+CREATE TABLE "Products" (
+	"id" INTEGER NOT NULL UNIQUE,
+	"name" VARCHAR NOT NULL,
+	"color"	TEXT NOT NULL,
+	"price"	REAL NOT NULL,
+	"amount" INTEGER NOT NULL,
+	"width"	REAL NOT NULL,
+	"length" REAL NOT NULL,
+	PRIMARY KEY("id" AUTOINCREMENT)
+);
+
+
+
+INSERT INTO Products ('name', 'color', 'price', 'amount', 'width', 'length')
+ VALUES
+('a', 'red', 100, 5, 2,3), 
+('b', 'green', 200, 6, 2.5,3.5), 
+('c', 'blue', 300, 7, 3,7), 
+('d', 'red', 400, 8, 1.5,3), 
+('e', 'green', 500, 9, 1.5,4.5), 
+('f', 'blue', 600, 10, 3,4), 
+('g', 'red', 650, 5, 11,30), 
+('h', 'green', 720, 13, 23,32), 
+('i', 'blue', 899, 15, 2,4), 
+('j', 'red', 100, 25, 2,3.5);
+
+
+SELECT * FROM Products WHERE amount > 2 AND color = 'blue';
+
+
+SELECT id, name, color, price, amount * price AS total_price From Products;
+
+
+SELECT * From Products WHERE length * width > 10;
