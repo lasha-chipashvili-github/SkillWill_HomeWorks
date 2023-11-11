@@ -1,0 +1,103 @@
+DROP TABLE IF EXISTS Customers;
+DROP TABLE IF EXISTS Orders;
+DROP TABLE IF EXISTS Shippings;
+DROP TABLE IF EXISTS თანამშრომლები;
+DROP TABLE IF EXISTS პარკინგი;
+DROP TABLE IF EXISTS დეპარტამენტები;
+DROP TABLE IF EXISTS ენები;
+DROP TABLE IF EXISTS თანამშრომლები_ენები;
+
+
+CREATE TABLE თანამშრომლები(
+	იდ	INTEGER NOT NULL UNIQUE,
+	სახელი	TEXT NOT NULL,
+	გვარი	TEXT NOT NULL,
+	პნ	INTEGER NOT NULL UNIQUE,
+	დეპარტამენტი INTEGER DEFAULT NULL,
+	PRIMARY KEY(იდ AUTOINCREMENT),
+	FOREIGN KEY (დეპარტამენტი) REFERENCES დეპარტამენტები(იდ) ON DELETE SET NULL
+);
+
+CREATE TABLE დეპარტამენტები(
+	იდ INTEGER NOT NULL UNIQUE,
+	დეპარტამენტი VARCHAR,
+	PRIMARY KEY(იდ AUTOINCREMENT)
+);
+
+CREATE TABLE პარკინგი (
+	ნომერი INTEGER NOT NULL UNIQUE,
+	დაკავებულია BOOLEAN NOT NULL DEFAULT FALSE,
+	ოკუპანტი INTEGER UNIQUE DEFAULT NULL,
+	PRIMARY KEY(ნომერი),
+	FOREIGN KEY (ოკუპანტი) REFERENCES თანამშრომლები(იდ) ON DELETE SET NULL
+);
+
+CREATE TABLE ენები(
+	იდ INTEGER NOT NULL UNIQUE,
+	ენა VARCHAR UNIQUE,
+	PRIMARY KEY(იდ AUTOINCREMENT)
+);
+
+
+CREATE TABLE თანამშრომლები_ენები(
+	იდ INTEGER NOT NULL UNIQUE, 
+	თანამშრომლის_იდ INT,
+	ენის_იდ INT,
+	PRIMARY KEY(იდ AUTOINCREMENT),
+	FOREIGN KEY (თანამშრომლის_იდ) REFERENCES თანამშრომლები(იდ) ON DELETE SET NULL,
+	FOREIGN KEY (ენის_იდ) REFERENCES ენები(იდ) ON DELETE SET NULL
+);
+
+INSERT INTO დეპარტამენტები(დეპარტამენტი) VALUES
+("ფინანსური დეპარტამენტი"),
+("იტ დეპარტამენტი"),
+("კადრები"),
+("ნათესავების დეპარტამენტი"),
+("დანარჩენ საქმეთა დეპარტამენტი");
+
+INSERT INTO თანამშრომლები(სახელი, გვარი, პნ, დეპარტამენტი) VALUES
+("ზიგმუნდ","ფროიდი",123,5),
+("რიკარდო","კაკა",222,3),
+("დენზელ","ვაშინგტონი",122,3),
+("ჯორჯ","ბიზე",321,1),
+("კვაჭი","კვაჭანტირაძე",333,4),
+("ბიონსე","ნოულსი",213,5),
+("ლინუს","ტორვალდსი",111,2),
+("გვიდო","ვან როსუმი",132,2),
+("ადრიან","ჰოლოვათი",312,2),
+("სტეფან","ვოლფრამი",231,2);
+
+INSERT INTO ენები(ენა) VALUES
+("python"),("C++"),
+("Java"),("C"),
+("C#"),("Wolfram"),
+("Fortran"),("Julia");
+
+INSERT INTO პარკინგი(ნომერი, დაკავებულია, ოკუპანტი) VALUES
+(1,TRUE,1),(2,FALSE,NULL),
+(3,TRUE,2),(4,FALSE,NULL),
+(5,TRUE,3),(6,FALSE,NULL),
+(777,TRUE,5),(8,FALSE,NULL),
+(9,TRUE,4),(10,FALSE,NULL),
+(11,TRUE,6),(12,FALSE,NULL);
+
+INSERT INTO თანამშრომლები_ენები(თანამშრომლის_იდ, ენის_იდ) VALUES
+(7,1),(7,2),(7,3),
+(8,1),(8,4),(8,5),
+(9,2),(9,6),(9,7),
+(10,7),(10,8),(10,2),
+(5,1),(5,2),(5,3),(5,4),(5,5),(5,6),(5,7),(5,8);
+
+-- თანამშრომლების და პარკინგის ცხრილებს შორის გვაქვს ერთი-ერთთან მიმართება, რაც უზრუნველყოფილია იმით, 
+-- რომ პარკინგის ცხრილში  ოკუპანტზე უნიკალურობის პირობაა დადებული, ხოლო თავად ოკუპანტი დაკავშირებულია 
+-- თანამშრომლებთან, რომელშიც თავის მხრივ ყველა ჩანაწერი უნიკალურია, პირადი ნომრის უნიკალურობაზე დაყრდნობით.
+
+-- დეპარტამენტებსა და თანამშრომლებს შორის გვაქვს ერთი-ბევრთან მიმართება, რამდენადაც ერთ დეპარტამენტში ბევრი 
+-- თანამშრომელის შეიძლებ იყოს, ერთი თანამშრომელი კი ერთზე მეტ დეპარტამენტში ვერ იქნება, ვინაიდან მისი პირადი
+-- ნომერზე უნიკალურობის პირობაა დადებული.
+
+-- თანამშრომლებსა და იმ პროგრამულ ენებს შორის რომლებსაც ისინი შეიძლება ფლობდნენ არის ბევრი-ბევრთან მიმართება
+-- რაც უზრუნველყოფილია შუალედური ცხრილით თანამშრომლები-ენები.
+
+-- დიაგრამა იხილეთ შემდეგ ბმულზე:
+-- https://github.com/lasha-chipashvili-github/SkillWill_HomeWorks/blob/aa27781eb723b3dac2d80f3b7e6ae68b1dd28500/SQL%20Relations.drawio.png
