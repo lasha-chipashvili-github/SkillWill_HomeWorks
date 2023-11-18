@@ -1,0 +1,164 @@
+-- მონაცემების ჩასმა შესაბამის ცხრილებში
+
+
+INSERT INTO books (title, description, publish_year, language) VALUES
+("მოხუცი და ზღვა","კარგი წიგნი",2010,"ქართული"),
+("დონ კიხოტი","კარგი წიგნი",2011,"ქართული"),
+("კაპიტან გრანტის შვილები","კარგი წიგნი",2012,"ქართული"),
+("გორა მბორგალი","კარგი წიგნი",2013,"ქართული"),
+("ჩემი ბრძოლა","საშიში",2014,"ქართული"),
+("კაპიტალი","გასათვალიწინებელი",2015,"ქართული"),
+("ღია საზოგადოება და მისი მტრები","იდიოტობა",2010,"რუსული"),
+("წითელქუდა","კარგი წიგნი",2011,"ინგლისური"),
+("პატარა უფლისწული","კარგი წიგნი",2012,"ქართული"),
+("ჩემი თავგადასავალი","კარგი წიგნი",2013,"ქართული"),
+("მშვიდობით იარაღო","კარგი წიგნი",2014,"ქართული"),
+("დათა თუთაშხია","კარგი წიგნი",2015,"ქართული"),
+("ჩექმებიანი კატა","კარგი წიგნი",2010,"ქართული"),
+("ადამიანთა მიწა","კარგი წიგნი",2011,"ფრანგული"),
+("კილიმანჯაროს თოვლიანი მთა","კარგი წიგნი",2012,"ქართული"),
+("ბაში-აჩუკი","კარგი წიგნი",2013,"ქართული"),
+("80000 კილომეტრი წყალქვეშ","კარგი წიგნი",2014,"ქართული"),
+("80 დღე დედამიწის გარშემო","კარგი წიგნი",2015,"ქართული"),
+("საიდუმლო კუნძული","კარგი წიგნი",2010,"ქართული"),
+("12 სკამი","კარგი წიგნი",2011,"რუსული");
+
+
+INSERT INTO customers(library_id, first_name, last_name, email, create_date, active) VALUES 
+(2,"John","Doe","john.doe@example.com","2023-08-01",1),
+(3,"Jane","Smith","jane.smith@example.com","2023-07-30",1),
+(3,"Michael","Johnson","michael.johnson@example.com","2023-08-02",1),
+(2,"Emily","Brown","emily.brown@example.com","2023-08-03",1),
+(1,"William","Lee","william.lee@example.com","2023-08-01",1),
+(3,"Sophia","Anderson","sophia.anderson@example.com","2023-07-29",1),
+(2,"James","Wilson","james.wilson@example.com","2023-07-31",1),
+(1,"Olivia","Miller","olivia.miller@example.com","2023-08-02",1),
+(1,"Benjamin","Taylor","benjamin.taylor@example.com","2023-07-30",1),
+(1,"Ava","Martinez","ava.martinez@example.com","2023-07-31",1),
+(2,"Liam","Davis","liam.davis@example.com","2023-08-01",1),
+(3,"Mia","Rodriguez","mia.rodriguez@example.com","2023-08-03",1),
+(2,"Noah","Hernandez","noah.hernandez@example.com","2023-07-29",1),
+(1,"Isabella","Garcia","isabella.garcia@example.com","2023-08-02",1),
+(1,"Ethan","Lopez","ethan.lopez@example.com","2023-08-01",1),
+(1,"Aiden","Gonzalez","aiden.gonzalez@example.com","2023-08-02",1),
+(2,"Amelia","Perez","amelia.perez@example.com","2023-08-03",1),
+(3,"Sebastian","Sanchez","sebastian.sanchez@example.com","2023-07-30",1),
+(3,"Harper","Turner","harper.turner@example.com","2023-07-31",1),
+(3,"Evelyn","Collins","evelyn.collins@example.com","2023-08-01",1),
+(1,"Mateo","Morris","mateo.morris@example.com","2023-08-03",1),
+(1,"Abigail","Nguyen","abigail.nguyen@example.com","2023-08-02",1),
+(3,"Ella","Rivera","ella.rivera@example.com","2023-07-29",1),
+(2,"Grayson","Cook","grayson.cook@example.com","2023-07-30",1),
+(2,"Scarlett","Rogers","scarlett.rogers@example.com","2023-07-31",1),
+(3,"Lucas","Bailey","lucas.bailey@example.com","2023-08-02",1),
+(1,"Chloe","James","chloe.james@example.com","2023-08-03",1),
+(2,"Jackson","Kelly","jackson.kelly@example.com","2023-07-30",1),
+(3,"Luna","Howard","luna.howard@example.com","2023-08-01",1),
+(1,"Zoey","Ward","zoey.ward@example.com","2023-08-03",1),
+(1,"Logan","Cox","logan.cox@example.com","2023-08-02",1),
+(3,"Leo","Richardson","leo.richardson@example.com","2023-07-29",1),
+(2,"Grace","Wood","grace.wood@example.com","2023-07-30",1),
+(2,"Carter","Ward","carter.ward@example.com","2023-07-31",1),
+(3,"Layla","Sanders","layla.sanders@example.com","2023-08-01",1),
+(3,"Matthew","Barnes","matthew.barnes@example.com","2023-08-02",1),
+(1,"Nora","Gomez","nora.gomez@example.com","2023-08-03",1),
+(1,"Wyatt","Long","wyatt.long@example.com","2023-07-30",1),
+(3,"Addison","Bennett","addison.bennett@example.com","2023-07-29",1),
+(2,"Elijah","Reed","elijah.reed@example.com","2023-08-02",1);
+
+INSERT INTO writers (first_name, last_name) VALUES
+("ერნესტ","ჰემინგუეი"),
+("სერვანტეს","საავედრა"),
+("ჯიულ","ვერნი"),
+("ჭაბუა","ამირეჯიბი"),
+("ადოლფ","ჰიტლერი"),
+("კარლ","მარქსი"),
+("კარლ","პოპერი"),
+("შარლ","პიერო"),
+("ანტუან","დე-სენტ ეგზიუპიერი"),
+("ევგენი","პეტროვი"),
+("ილია","ილფი"),
+("აკაკი","წერეთელი");
+
+
+
+INSERT INTO libraries (town, address) VALUES
+("თბილისი","რუსთაველის ქუჩა, №2"),
+("რუსთავი","რუსთაველის ქუჩა, №4"),
+("მცხეთა","რუსთაველის ქუჩა, №3");
+
+
+INSERT INTO categories(category) VALUES
+("საბავშვო"),
+("სათვგადასავლო"),
+("სატირული"),
+("ისტორიული"),
+("ნოველა"),
+("ფილოსოფია");
+
+INSERT INTO bookshelves (library_id) VALUES 
+(1), (2), (3), (1), (2), (3), (1), (2), (3);
+
+INSERT INTO staff (library_id, first_name, last_name, email, position) VALUES
+(1,"Mila","Phillips","mila.phillips@example.com","manager"),
+(2,"Grayson","Flores","grayson.flores@example.com","librarian"),
+(3,"Avery","Evans","avery.evans@example.com","librarian"),
+(1,"Elijah","Hernandez","elijah.hernandez@example.com","manager"),
+(2,"Eleanor","Collins","eleanor.collins@example.com","librarian"),
+(3,"Daniel","Stewart","daniel.stewart@example.com","librarian"),
+(1,"Aria","Hill","aria.hill@example.com","manager"),
+(2,"Henry","Mitchell","henry.mitchell@example.com","librarian"),
+(3,"Elizabeth","Perry","elizabeth.perry@example.com","librarian"),
+(1,"Caleb","Bailey","caleb.bailey@example.com","reader");
+
+INSERT INTO books_categories (book_id, category_id) VALUES
+(1,5),(2,2),(2,3),(3,2),
+(3,1),(4,2),(5,6),(6,6),
+(7,6),(8,1),(9,5),(10,2),
+(11,5),(12,5),(13,1),(14,5),
+(15,5),(16,4),(17,2),(17,1),
+(18,1),(18,2),(19,1),(19,2),
+(20,5),(20,3);
+
+INSERT INTO books_writers (book_id, writer_id) VALUES
+(1,1),(2,2),(3,3),(4,4),
+(5,5),(6,6),(7,7),(8,8),
+(9,9),(10,12),(11,1),(12,3),
+(13,8),(14,9),(15,1),(16,12),
+(17,3),(18,3),(19,3),(20,10),
+(20,11);
+
+INSERT INTO bookshelves_books (book_id, bookshelf_id, books_amount) VALUES
+(1,1,3),(2,2,4),(3,3,5),(4,4,6),
+(5,5,3),(6,6,4),(7,7,5),(8,8,6),
+(9,9,3),(10,1,4),(11,2,5),(12,3,6),
+(13,4,3),(14,5,4),(15,6,5),(16,7,6),
+(17,8,3),(18,9,4),(19,1,5),(20,2,6),
+(1,3,3),(2,4,4),(3,5,5),(4,6,6),
+(5,7,3),(6,8,4),(7,9,5),(8,1,6),
+(9,2,3),(10,3,4),(11,4,5),(12,5,6),
+(13,6,3),(14,7,4),(15,8,5),(16,9,6),
+(17,1,3),(18,2,4),(19,3,5),(20,4,6);
+
+
+INSERT INTO rentals(bookshelf_id, rental_date, book_id, customer_id, return_date) VALUES
+(1, "2023-08-01 10:00:00",1,2, "2023-08-02 10:00:00"),
+(2, "2023-08-01 11:15:00",2,4, "2023-08-02 11:15:00"),
+(3, "2023-08-01 12:30:00",3,6, "2023-08-02 12:30:00"),
+(4, "2023-08-02 09:00:00",4,8, "2023-08-03 09:00:00"),
+(5, "2023-08-02 10:30:00",5,10, "2023-08-03 10:30:00"),
+(6, "2023-08-03 13:00:00",6,12, "2023-08-04 13:00:00"),
+(7, "2023-08-03 14:45:00",7,14, "2023-08-04 14:45:00"),
+(8, "2023-08-04 10:15:00",8,16, "2023-08-05 10:15:00"),
+(9, "2023-08-04 12:00:00",9,18, "2023-08-05 12:00:00"),
+(1, "2023-08-05 08:30:00",10,20, "2023-08-06 08:30:00"),
+(2, "2023-08-06 09:45:00",11,22, "2023-08-07 09:45:00"),
+(3, "2023-08-06 11:00:00",12,24, "2023-08-07 11:00:00"),
+(4, "2023-08-07 14:00:00",13,26, "2023-08-08 14:00:00"),
+(5, "2023-08-07 15:15:00",14,28, "2023-08-08 15:15:00"),
+(6, "2023-08-08 12:30:00",15,30, "2023-08-09 12:30:00"),
+(7, "2023-08-08 13:45:00",16,32, "2023-08-09 13:45:00"),
+(8, "2023-08-09 11:00:00",17,34, "2023-08-10 11:00:00"),
+(9, "2023-08-09 12:15:00",18,36, "2023-08-10 12:15:00"),
+(1, "2023-08-10 14:30:00",19,38, "2023-08-11 14:30:00"),
+(2, "2023-08-10 15:45:00",20,40, "2023-08-11 15:45:00");

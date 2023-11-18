@@ -1,0 +1,19 @@
+-- ვაჩვენოთ ვის რა წიგნი აქვს გატანილი და როდის უნდა დააბრუნოს
+SELECT r.return_date, c.first_name, c.last_name, b.title
+FROM customers AS c
+JOIN rentals AS r
+ON r.customer_id = c.id
+JOIN books AS b
+ON b.id = r.book_id;
+
+-- ვაჩვენოთ რომელმა მწერალმა რა წიგნი დაწერა შესაბამისი ჟანრის მითითებით
+SELECT w.first_name, w.last_name, b.title, c.category
+FROM writers AS w
+JOIN books_writers AS bw
+ON w.id = bw.writer_id
+JOIN books AS b
+ON b.id = bw.book_id
+JOIN books_categories AS bc
+ON b.id = bc.book_id
+JOIN categories AS c
+ON bc.category_id = c.id;

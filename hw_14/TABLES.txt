@@ -1,0 +1,130 @@
+-- წავშალოთ შესაძლო არსებული ცხრილები
+DROP TABLE IF EXISTS books_writers;
+DROP TABLE IF EXISTS books_categories;
+DROP TABLE IF EXISTS bookshelves_books;
+DROP TABLE IF EXISTS rentals;
+DROP TABLE IF EXISTS books;
+DROP TABLE IF EXISTS bookshelves;
+DROP TABLE IF EXISTS categories;
+DROP TABLE IF EXISTS customers;
+DROP TABLE IF EXISTS staff;
+DROP TABLE IF EXISTS writers;
+DROP TABLE IF EXISTS libraries;
+
+
+--შევქმნათ ცხრილები
+
+--მომხმარებლების ცხრილი
+CREATE TABLE customers(
+	id INTEGER NOT NULL UNIQUE,
+	library_id INTEGER NOT NULL,
+	first_name VARCHAR(64) NOT NULL,
+	last_name VARCHAR(128) NOT NULL,
+	email VARCHAR(256) NOT NULL,
+	create_date DATE,
+	active INTEGER,
+	PRIMARY KEY("id" AUTOINCREMENT)
+);
+
+-- მწერლების ცხრილი
+CREATE TABLE writers(
+	id INTEGER NOT NULL UNIQUE,
+	first_name VARCHAR(64) NOT NULL,
+	last_name VARCHAR(128) NOT NULL,
+	PRIMARY KEY("id" AUTOINCREMENT)
+);
+
+
+-- წიგნების ჟანრი (კატეგორია)
+CREATE TABLE categories(
+	id INTEGER NOT NULL UNIQUE,
+	category VARCHAR(256) NOT NULL,
+	PRIMARY KEY("id" AUTOINCREMENT)
+);
+
+
+-- წიგნები
+CREATE TABLE books(
+	id INTEGER NOT NULL UNIQUE,
+	title VARCHAR(256) NOT NULL,
+	description TEXT,
+	publish_year INTEGER,
+	language VARCHAR(128) NOT NULL,
+	PRIMARY KEY("id" AUTOINCREMENT)
+);
+
+
+-- many-to-many რელაციის ცხრილი წიგნებსა და მწერლებს შორის
+CREATE TABLE books_writers(
+	id INTEGER NOT NULL UNIQUE,
+	book_id INTEGER NOT NULL,
+	writer_id INTEGER NOT NULL,
+	PRIMARY KEY("id" AUTOINCREMENT),
+	FOREIGN KEY (writer_id) REFERENCES writers(id) ON DELETE SET NULL,
+	FOREIGN KEY (book_id) REFERENCES books(id) ON DELETE SET NULL
+);
+
+-- many-to-many რელაციის ცხრილი წიგნებსა და ჟანრებს შორის
+CREATE TABLE books_categories(
+	id INTEGER NOT NULL UNIQUE,
+	book_id INTEGER NOT NULL, 
+	category_id INTEGER NOT NULL,
+	PRIMARY KEY("id" AUTOINCREMENT),
+	FOREIGN KEY (category_id) REFERENCES categories(id) ON DELETE SET NULL,
+	FOREIGN KEY (book_id) REFERENCES books(id) ON DELETE SET NULL
+);
+
+
+-- many-to-many რელაციის ცხრილი წიგნებსა და თაროებს შორის
+CREATE TABLE bookshelves_books(
+	id INTEGER NOT NULL UNIQUE,
+	book_id INTEGER NOT NULL, 
+	bookshelf_id INTEGER NOT NULL,
+	books_amount INTEGER NOT NULL,
+	PRIMARY KEY("id" AUTOINCREMENT),
+	FOREIGN KEY (bookshelf_id) REFERENCES bookshelves(id) ON DELETE SET NULL,
+	FOREIGN KEY (book_id) REFERENCES books(id) ON DELETE SET NULL
+);
+
+-- წიგნის თაროები 
+CREATE TABLE bookshelves(
+	id INTEGER NOT NULL UNIQUE,
+	library_id INTEGER NOT NULL,
+	PRIMARY KEY("id" AUTOINCREMENT),
+	FOREIGN KEY (library_id) REFERENCES libraries(id) ON DELETE SET NULL
+);
+
+-- ბიბლიოთეკები
+CREATE TABLE libraries(
+	id INTEGER NOT NULL UNIQUE,
+	town VARCHAR(128) NOT NULL,
+	address VARCHAR(256) NOT NULL,
+	PRIMARY KEY("id" AUTOINCREMENT)
+);
+
+
+-- წიგნის გათხოვების აღრიცხვა
+CREATE TABLE rentals (
+	id INTEGER NOT NULL UNIQUE,
+	bookshelf_id INTEGER NOT NULL,
+	rental_date TIMESTAMP,
+	book_id INTEGER NOT NULL,
+	customer_id INTEGER NOT NULL,
+	return_date TIMESTAMP,
+	PRIMARY KEY("id" AUTOINCREMENT),
+	FOREIGN KEY (bookshelf_id) REFERENCES bookshelves(id) ON DELETE SET NULL,
+	FOREIGN KEY (book_id) REFERENCES books(id) ON DELETE SET NULL,
+	FOREIGN KEY (customer_id) REFERENCES customers(id) ON DELETE SET NULL
+);
+
+
+-- ბიბლიოთეკის თანამშრომლები
+CREATE TABLE staff(
+	id INTEGER NOT NULL UNIQUE,
+	library_id INTEGER NOT NULL,
+	first_name VARCHAR(128) NOT NULL,
+	last_name VARCHAR(256) NOT NULL,
+	email VARCHAR(256) NOT NULL,
+	position VARCHAR(128) NOT NULL,
+	PRIMARY KEY("id" AUTOINCREMENT)
+);
