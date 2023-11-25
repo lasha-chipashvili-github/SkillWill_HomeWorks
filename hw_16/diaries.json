@@ -1,0 +1,39 @@
+{
+    "diaries": [
+        {
+            "memo": "Realigned 24 hour conglomeration",
+            "owner": "24ca21aad9394b69a6f695e86f62c607",
+            "tags": "RBAC"
+        },
+        {
+            "memo": "newest memo",
+            "owner": "1d1823311c5140a5a9e7143e42a5a326",
+            "tags": "admin memo"
+        },
+        {
+            "memo": "admins memo",
+            "owner": "1d1823311c5140a5a9e7143e42a5a326",
+            "tags": "admini"
+        },
+        {
+            "memo": "adminis memo",
+            "owner": "1d1823311c5140a5a9e7143e42a5a326",
+            "tags": "admini"
+        },
+        {
+            "memo": "adminis meore memo",
+            "owner": "1d1823311c5140a5a9e7143e42a5a326",
+            "tags": "meore memo"
+        },
+        {
+            "memo": "admins memo",
+            "owner": "24ca21aad9394b69a6f695e86f62c607",
+            "tags": "admin"
+        },
+        {
+            "memo": "AI IA",
+            "owner": "24ca21aad9394b69a6f695e86f62c607",
+            "tags": "dedaena"
+        }
+    ]
+}

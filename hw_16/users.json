@@ -1,0 +1,16 @@
+{
+    "users": [
+        {
+            "id": "24ca21aad9394b69a6f695e86f62c607",
+            "username": "admin",
+            "password": "admin",
+            "dairies": []
+        },
+        {
+            "id": "1d1823311c5140a5a9e7143e42a5a326",
+            "username": "user1",
+            "password": "user1",
+            "dairies": []
+        }
+    ]
+}
