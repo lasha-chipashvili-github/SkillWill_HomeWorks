@@ -1,4 +1,0 @@
-# DiaryBookManager
-
-
-Have fun ;) 
