@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Hello from book template!</h1>
+    {% for book in books %}
+    <ul>
+        <li> {{book.book_title}} </li>
+        <li> {{book.book_author}} </li>
+        <li> {{book.book_price}} </li>
+    </ul>
+    {% endfor %}
+{% endblock %}
