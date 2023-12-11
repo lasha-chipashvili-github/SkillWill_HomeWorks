@@ -5,9 +5,15 @@
     <title>Title</title>
 </head>
 <body>
-<h1 style="color:Tomato">This is base!</h1>
-{% block content %}
+<h1 style="color:Tomato">This is HomePage!</h1>
 
+<div>
+{% block content %}
+<div>
+    <a href="{% url 'HW20:animal'  %}"></a>Animals</a>
+</div>
 {% endblock content %}
+</div>
+
 </body>
 </html>

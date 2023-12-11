@@ -28,10 +28,10 @@ class AddCarView(APIView):
             return Response(serializer.data)
         return Response(serializer.errors)
 
-class DeleteCar(APIView):
+class DeleteCarView(APIView):
 
     def delete(self, request, pk):
         event = Car.objects.get(pk=pk)
         event.delete()
-        return ("Car deleted successfully!")
+        return Response("Car deleted successfully!")
 
