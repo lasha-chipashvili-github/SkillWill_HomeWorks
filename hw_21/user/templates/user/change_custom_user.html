@@ -1,0 +1,20 @@
+<!-- myapp/templates/user_form.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>{% if form.instance.id %}
+    CHANGE USER
+    {% else %}
+    CREATE USER
+    {% endif %}</h2>
+<form method="post" action="{% if form.instance.id %}
+  {% url 'user_change' form.instance.id %}
+  {% else %}
+  {% url 'user_create' %}
+  {% endif %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">SAVE</button>
+</form>
+<a href="{% url 'user_list' %}">BACK TO ALL USERS</a>
+{% endblock %}

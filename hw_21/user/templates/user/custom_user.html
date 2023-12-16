@@ -1,0 +1,12 @@
+<!-- myapp/templates/user_detail.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>USER DETAILS</h2>
+<p>Username: {{ user.username }}</p>
+<p>Email: {{ user.email }}</p>
+<!-- Add other fields as needed -->
+<a href="{% url 'user_change' user.id %}">Edit user</a>
+<a href="{% url 'user_delete' user.id %}">Delete user</a>
+<a href="{% url 'user_list' %}">Back to user list</a>
+{% endblock %}

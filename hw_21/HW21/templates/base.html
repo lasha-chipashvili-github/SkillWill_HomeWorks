@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% if current_page %}
+    <title>{{current_page}}</title>
+    {% else %}
+    <title>ALL USERS</title>
+    {% endif %}
+</head>
+<a href="{% url 'user_list' %}"><h1 style="color:burlywood">This is Base!</h1></a>
+<a href="{% url 'user_create' %}">CREATE NEW USER</a>
+<body>
+{% block content %}
+{% endblock content %}
+</body>
+</html>
