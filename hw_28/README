@@ -1,0 +1,11 @@
+გვერდის ადმინია
+{
+"username":"superuser",
+"password":"super"
+}
+
+ხოლო რიგითი მომხმარებლები
+{
+"username":"testuser",
+"password":"test"
+}
