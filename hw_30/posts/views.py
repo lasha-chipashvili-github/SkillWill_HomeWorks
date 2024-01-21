@@ -15,13 +15,13 @@ from .serializers import PostSerializer
 class PostListView(generics.ListAPIView):
     queryset = Post.objects.all()
     serializer_class = PostSerializer
-    template_name = "posts/post_list.html"
-
-    def list(self, request, *args, **kwargs):
-        queryset = self.filter_queryset(self.get_queryset())
-        serializer = self.get_serializer(queryset, many=True)
-        context = {'data': serializer.data}
-        return render(request, self.template_name, context)
+    # template_name = "posts/post_list.html"
+    #
+    # def list(self, request, *args, **kwargs):
+    #     queryset = self.filter_queryset(self.get_queryset())
+    #     serializer = self.get_serializer(queryset, many=True)
+    #     context = {'data': serializer.data}
+    #     return render(request, self.template_name, context)
 
 
 
