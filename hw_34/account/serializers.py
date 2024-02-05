@@ -1,5 +1,5 @@
 from django.contrib.auth.models import User
-from .models import UserRecipe
+# from .models import UserRecipe
 from rest_framework import serializers
 
 class UserSerializer(serializers.ModelSerializer):
@@ -21,7 +21,7 @@ class UserLoginSerializer(serializers.Serializer):
     password = serializers.CharField()
 
 
-class UserRecipeSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = UserRecipe
-        fields = ('id', 'user', 'recipe')
+# class UserRecipeSerializer(serializers.ModelSerializer):
+#     class Meta:
+#         model = UserRecipe
+#         fields = ('id', 'user', 'recipe')

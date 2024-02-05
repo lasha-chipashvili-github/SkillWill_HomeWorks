@@ -1,13 +1,12 @@
-from django.shortcuts import render
-
-
-from django.shortcuts import render
 from rest_framework import viewsets
 from .models import Recipe
-from account.models import UserRecipe
+
+from rest_framework import generics
+from rest_framework import permissions
+
 
 from .serializers import RecipeSerializer
-from account.serializers import UserRecipeSerializer
+
 
 
 # class RecipeView(viewsets.ModelViewSet):
@@ -25,5 +24,17 @@ from account.serializers import UserRecipeSerializer
 
 
 class RecipeView(viewsets.ModelViewSet):
-     queryset= Recipe.objects.all()
-     serializer_class= RecipeSerializer
+    # queryset= Recipe.objects.all()
+    def get_queryset(self):
+        user = self.request.user
+        queryset = Recipe.objects.filter(user=user)
+        return queryset
+
+    serializer_class= RecipeSerializer
+    permission_classes = [permissions.IsAuthenticated]
+
+# class RecipeCreateView(generics.CreateAPIView):
+#     serializer_class = RecipeSerializer
+#
+#     def perform_create(self, serializer):
+#         serializer.save(user=self.request.user)
